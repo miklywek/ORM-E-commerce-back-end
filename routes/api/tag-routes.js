@@ -11,11 +11,16 @@ router.get("/", (req, res) => {
       model: Product,
       attributes: ["product_name", "price", "stock", "category_id"],
     },
-  }).then((tagData) => {
-    res.json(tagData).catch((err) => {
-      res.status(500), json(err);
+  })
+    .then((tagData) => {
+      res.json(tagData).catch((err) => {
+        res.status(500), json(err);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  });
 });
 
 router.get("/:id", (req, res) => {
@@ -29,11 +34,16 @@ router.get("/:id", (req, res) => {
       model: Product,
       attributes: ["product_name", "price", "stock", "category_id"],
     },
-  }).then((tagData) => {
-    res.json(tagData).catch((err) => {
+  })
+    .then((tagData) => {
+      res.json(tagData).catch((err) => {
+        res.status(500).json(err);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
       res.status(500).json(err);
     });
-  });
 });
 
 router.post("/", (req, res) => {

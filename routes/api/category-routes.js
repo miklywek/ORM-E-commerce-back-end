@@ -7,12 +7,13 @@ router.get("/", (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll({
-    include: [
+    include:
+      //  [
       {
         model: Product,
         attributes: ["id", "product_name", "price", "stock", "category_id"],
       },
-    ],
+    // ],
   })
     .then((categoryData) => {
       if (!categoryData) {
@@ -40,17 +41,18 @@ router.get("/:id", (req, res) => {
       model: Product,
       attributes: ["id", "product_name", "price", "stock", "category_id"],
     },
-  });
-  then((categoryData) => {
-    if (!categoryData) {
-      res.status(400).json({ message: "No categories found" });
-      return;
-    }
-    res.json(categoryData);
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+  })
+    .then((categoryData) => {
+      if (!categoryData) {
+        res.status(400).json({ message: "No categories found" });
+        return;
+      }
+      res.json(categoryData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post("/", (req, res) => {
@@ -67,11 +69,10 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
   // update a category by its `id` value
+  console.log("here is a consolo log", req.body);
   Category.update(req.body, {
     where: {
-      id: {
-        id: req.body.id,
-      },
+      id: req.params.id,
     },
   })
     .then((categoryData) => {

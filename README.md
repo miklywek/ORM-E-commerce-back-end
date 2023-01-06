@@ -2,7 +2,7 @@
 
 ## _Contributing_
 
-A mysql database and application backend for an e-commerce site. Built using MySQL2, Express, Sequelize and
+A mysql database and application backend for an e-commerce site. Built using MySQL2, Express, Sequelize.
 
 ## _Installation_
 
@@ -16,21 +16,23 @@ A mysql database and application backend for an e-commerce site. Built using MyS
 
 Run the following command at the root of your project and answer the prompted questions:
 
-mysql -u root -p
+- mysql -u root -p
 
-source db/schema.sql
+- source db/schema.sql
 
-quit
+- quit
 
-npm run seed
+- npm run seed
 
-npm start
+- npm start
 
 ## _Authors_
 
 Mykola Kysil
 
-Here is an MP4 showing the entire process that can be watched through the Awesome Screenshot link below.
+![Demonstration of the functionality of the application .](./assets/img/ORM_1.gif)
+
+![Demonstration of the functionality of the application .](./assets/img/ORM_2.gif)
 
 ## _Contact Me_
 

@@ -9,13 +9,14 @@ router.get("/", (req, res) => {
   Tag.findAll({
     include: {
       model: Product,
-      attributes: ["product_name", "price", "stock", "category_id"],
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
     },
   })
     .then((tagData) => {
       res.json(tagData).catch((err) => {
         res.status(500), json(err);
       });
+      res.json(tagData);
     })
     .catch((err) => {
       console.log(err);
@@ -32,13 +33,14 @@ router.get("/:id", (req, res) => {
     },
     include: {
       model: Product,
-      attributes: ["product_name", "price", "stock", "category_id"],
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
     },
   })
     .then((tagData) => {
       res.json(tagData).catch((err) => {
         res.status(500).json(err);
       });
+      req.json(tagData);
     })
     .catch((err) => {
       console.log(err);
@@ -67,6 +69,10 @@ router.put("/:id", (req, res) => {
     },
   })
     .then((tagData) => {
+      if (!tagData) {
+        res.status(404).json({ message: "No tag found with this id" });
+        return;
+      }
       res.json(tagData);
     })
     .catch((err) => {

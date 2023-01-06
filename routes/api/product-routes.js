@@ -12,11 +12,11 @@ router.get("/", (req, res) => {
     includes: [
       {
         mode: Category,
-        attributes: ["category_name"],
+        attributes: ["id", "category_name"],
       },
       {
         mode: Tag,
-        attributes: ["tag_name"],
+        attributes: ["id", "tag_name"],
       },
     ],
   })
@@ -38,11 +38,11 @@ router.get("/:id", (req, res) => {
     includes: [
       {
         mode: Category,
-        attributes: ["category_name"],
+        attributes: ["id", "category_name"],
       },
       {
         mode: Tag,
-        attributes: ["tag_name"],
+        attributes: ["id", "tag_name"],
       },
     ],
   })
@@ -75,6 +75,7 @@ router.post("/", (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
+    category_id: req.body.category_id,
     tagIds: req.body.tagIds,
   })
     .then((product) => {

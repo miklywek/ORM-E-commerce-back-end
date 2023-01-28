@@ -36,7 +36,7 @@ Mykola Kysil
 
 ## _Contact Me_
 
-- Github: **[KysilMykola](https://github.com/BwayCarl)**
+- Github: **[miklywek](https://github.com/miklywek)**
 
 - Email: **[miklywek@gmail.com](mailto:miklywek@gmail.com)**
 
